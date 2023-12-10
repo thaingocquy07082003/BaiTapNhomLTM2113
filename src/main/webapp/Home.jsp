@@ -79,11 +79,12 @@
             ArrayList<Room> rooms = (ArrayList<Room>)request.getAttribute("rooms");
             for (Room room : rooms) {
         %>
+        <a href="RoomPasswordServlet?id_room=<%=room.getId_room()%>">
             <div style="background-image:url('./image/BG.jpg');height: 60px; width: 70%; display: block" >
-
                 <h2> <%=room.getName_room() %> </h2>
 
             </div>
+        </a>
             <br style="height: 20px;">
         <% } %>
     </form>

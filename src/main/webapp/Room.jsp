@@ -71,15 +71,16 @@
 
     </nav>
     <br>
-    <form>
+    <form action="QuestionViewServlet" method="POST">
         <%
             Room room = (Room)request.getAttribute("room");
         %>
-        <div style="background-color: #FFCC99;margin-left: 35%;margin-right: 35%;width: auto;height: 400px;color: black">
+        <div style="background-color: #FFCC99;margin-left: 35%;margin-right: 35%;width: 500px;height: 400px;color: black">
             <input type="hidden" name="id_room" value="<%= room.getId_room() %>">
-            <h3>Có Phải bạn muốn tham dự <%=room.getName_room()%> </h3>
+            <h4 style="margin-bottom: 30px;">Có Phải bạn muốn tham dự <%=room.getName_room()%> </h4>
+            <label for="input_roompassword" style="color: black;margin-right: 15px;margin-left: 20px;"> Nhập mật khẩu phòng thi </label>
             <input type="text" style="background-color: aliceblue;" name="password_room" id="input_roompassword">
-            <label for="input_roompassword" style="color: black;margin-right: 15px;"> Nhập mật khẩu phòng thi </label>
+            <button type="submit" value="submit" style="margin-left: 45%;margin-top: 50px;" > Confirm </button>
         </div>
     </form>
 <br/>
