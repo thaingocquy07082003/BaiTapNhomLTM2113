@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" import="java.util.ArrayList" %>
+<%@ page language="java" import="model.bean.*" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -72,6 +74,18 @@
         <div style="width: 70%;height: 50px; background-color: #FFCC99;">
             <h2> Các Khóa Học Của Tôi</h2>
         </div>
+        <br>
+        <%
+            ArrayList<Room> rooms = (ArrayList<Room>)request.getAttribute("rooms");
+            for (Room room : rooms) {
+        %>
+            <div style="background-image:url('./image/BG.jpg');height: 60px; width: 70%; display: block" >
+
+                <h2> <%=room.getName_room() %> </h2>
+
+            </div>
+            <br style="height: 20px;">
+        <% } %>
     </form>
 </body>
 </html>

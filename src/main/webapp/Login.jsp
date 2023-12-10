@@ -15,29 +15,31 @@
     <title>Log In</title>
 </head>
 <body>
-    <div class="login">
-        <div class="box1">
-            <h3> Login </h3>
+    <form action="GetAllRoomServlet" method="POST">
+        <div class="login">
+            <div class="box1">
+                <h3> Login </h3>
+            </div>
+            <div class="box2">
+                <input type="text"  class="mail" placeholder="Email" autocomplete="off" required >
+                <i class="fa-solid fa-envelope" ></i>
+            </div>
+            <div class="box3">
+                <input type="password" class="mail"placeholder="Password" autocomplete="off" required>
+                <i class="fa-solid fa-lock" ></i>
+            </div>
+            <div class="box4">
+                <input type="checkbox" class="checkbox" id="mycheckbox">
+                <label for="mycheckbox" > Remember Me Forget Password </label>
+            </div>
+            <div class="box5">
+                <button> Log in </button>
+            </div>
+            <div class="box6">
+                <p> Dont't have a account </p>
+                <a href="Register.jsp"> Register </a>
+            </div>
         </div>
-        <div class="box2">
-            <input type="text"  class="mail" placeholder="Email" autocomplete="off" required >
-            <i class="fa-solid fa-envelope" ></i>
-        </div>
-        <div class="box3">
-            <input type="password" class="mail"placeholder="Password" autocomplete="off" required>
-            <i class="fa-solid fa-lock" ></i>
-        </div>
-        <div class="box4">
-            <input type="checkbox" class="checkbox" id="mycheckbox">
-            <label for="mycheckbox" > Remember Me Forget Password </label>
-        </div>
-        <div class="box5">
-            <button> Log in </button>
-        </div>
-        <div class="box6">
-            <p> Dont't have a account </p>
-            <a href="Register.jsp"> Register </a>
-        </div>
-    </div>
+    </form>
 </body>
 </html>
