@@ -1,4 +1,4 @@
-package model.bo;
+package baitapnhom.model.bo;
 
 public class AccountManageBO {
 }

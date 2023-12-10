@@ -1,4 +1,4 @@
-package controller;
+package baitapnhom.controller;
 
 import javax.servlet.http.HttpServlet;
 

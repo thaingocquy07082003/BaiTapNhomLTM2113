@@ -1,4 +1,4 @@
-package model.bean;
+package baitapnhom.model.bean;
 
 public class Question {
    private int id_question ;

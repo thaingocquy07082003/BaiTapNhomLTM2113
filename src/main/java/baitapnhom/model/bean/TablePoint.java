@@ -1,4 +1,4 @@
-package model.bean;
+package baitapnhom.model.bean;
 
 public class TablePoint {
     private int id_room ;

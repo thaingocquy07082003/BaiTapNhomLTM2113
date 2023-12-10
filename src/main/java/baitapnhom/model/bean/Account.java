@@ -1,14 +1,14 @@
-package model.bean;
+package baitapnhom.model.bean;
 
 public class Account {
     private String username;
     private String password;
-    private String role;
+    private int role;
 
     public Account() {
     }
 
-    public Account(String username, String password, String role) {
+    public Account(String username, String password, int role) {
         this.username = username;
         this.password = password;
         this.role = role;
@@ -30,11 +30,12 @@ public class Account {
         this.password = password;
     }
 
-    public String getRole() {
+    public int  getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(int role) {
         this.role = role;
     }
+
 }
