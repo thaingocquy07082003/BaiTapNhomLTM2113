@@ -37,7 +37,12 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("mess","Wrong user or pass");
             request.getRequestDispatcher("/Login.jsp").forward(request,response);
         }else {
-            response.sendRedirect("/Home.jsp");
+            if(bo.getAccountbyUserPass(username,password).getId_role()==1)
+            {
+                response.sendRedirect("/Admin.jsp");
+            }else {
+                response.sendRedirect("/Home.jsp");
+            }
         }
 
     }
