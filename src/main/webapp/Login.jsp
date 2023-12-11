@@ -20,12 +20,15 @@
             <div class="box1">
                 <h3> Login </h3>
             </div>
+            <div>
+                <marquee style="color: red">${mess}</marquee>
+            </div>
             <div class="box2">
                 <input type="text"  class="mail" placeholder="Email" autocomplete="off" required  name="username">
                 <i class="fa-solid fa-envelope" ></i>
             </div>
             <div class="box3">
-                <input type="password" class="mail"placeholder="Password" autocomplete="off" required>
+                <input type="password" class="mail"placeholder="Password" autocomplete="off" required name="password">
                 <i class="fa-solid fa-lock" ></i>
             </div>
             <div class="box4">

@@ -27,9 +27,10 @@
     </style>
 </head>
 <body>
-    <form>
-        <div style="border: 3px solid red;background-color: #fff;border-radius: 5px;width: 100px;">
+    <form action="ResultServlet" method="POST">
+        <div style="border: 3px solid red;background-color: #fff;border-radius: 5px;width: 100px;display: inline-block;">
             <p>Xin chào <%=request.getAttribute("username")%></p>
+            <p>id phòng :<%=request.getAttribute("id_room")%></p>
         </div>
         <%
             int time = (int) request.getAttribute("time");
@@ -41,14 +42,23 @@
         %>
             <div style="background-image:url('./image/EXBG.jpg');height: 270px;width: 800px;color: black;margin-top: 50px;solid-color: bisque;margin-left: 23%;">
                 Câu hỏi <%=i+1%>/<%=questions.size()%> : <p><%=questions.get(i).getQuestion()%></p>
-                <input type="radio" name="option" value="1"> <%=answers.get(i).getAnswer_a()%> <br>
+                <input type="radio" name="option<%=i%>" value="1"> <%=answers.get(i).getAnswer_a()%> <br>
                 <br>
-                <input type="radio" name="option" value="2"> <%=answers.get(i).getAnswer_b()%> <br>
+                <input type="radio" name="option<%=i%>" value="2"> <%=answers.get(i).getAnswer_b()%> <br>
                 <br>
-                <input type="radio" name="option" value="3"> <%=answers.get(i).getAnswer_c()%> <br>
+                <input type="radio" name="option<%=i%>" value="3"> <%=answers.get(i).getAnswer_c()%> <br>
                 <br>
-                <input type="radio" name="option" value="4"> <%=answers.get(i).getAnswer_d()%> <br>
+                <input type="radio" name="option<%=i%>" value="4"> <%=answers.get(i).getAnswer_d()%> <br>
                 <br>
+<%--                    Câu hỏi <%=i+1%>/<%=questions.size()%> : <p><%=questions.get(i).getQuestion()%></p>--%>
+<%--                    <input type="radio" name="option<%=i%>" value="1"  <%=answers.get(i).getAnswer_a()%> <br>--%>
+<%--                    <br>--%>
+<%--                    <input type="radio" name="option<%=i%>" value="2"  <%=answers.get(i).getAnswer_b()%> <br>--%>
+<%--                    <br>--%>
+<%--                    <input type="radio" name="option<%=i%>" value="3"  <%=answers.get(i).getAnswer_c()%> <br>--%>
+<%--                    <br>--%>
+<%--                    <input type="radio" name="option<%=i%>" value="4"  <%=answers.get(i).getAnswer_d()%> <br>--%>
+<%--                    <br>--%>
             </div>
         <%
             }
@@ -87,7 +97,7 @@
             const timer = setInterval(updateCountdown, 1000);
             updateCountdown(); // Gọi hàm lần đầu khi trang được tải
         </script>
-        <input type="hidden" name="id_room" value="<%=id_room%>">
+        <input type="hidden" name="id_room" value="<%=request.getAttribute("id_room")%>">
         <input type="hidden" name="username" value="<%=username%>">
         <button type="submit" id="submitButton" value="submit" class="btn btn-outline-success" style="margin-left: 45%;margin-top: 50px;width:250px;"> Nộp bài </button>
     </form>

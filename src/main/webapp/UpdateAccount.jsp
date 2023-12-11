@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: thain
-  Date: 12/6/2023
-  Time: 9:24 PM
+  Date: 12/12/2023
+  Time: 2:33 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -31,6 +31,7 @@
     </style>
 </head>
 <body>
+<form action="UpdateAccountServlet" method="POST" >
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="">
@@ -59,10 +60,10 @@
                     </li>
                 </ul>
 
-                <form class="d-flex" role="search" style="margin-left: 10px;">
+                <form class="d-flex" role="search" style="margin-left: 10px;" action="SearchServlet" method="POST">
                     <label for="input_search_room" > Nhập vào đây phòng bạn muốn tìm kiếm  </label>
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:200px;" id="input_search_room" >
-
+                    <input name="search"  class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:200px;" id="input_search_room">
+                    <input type="hidden" name="username" value="<%=request.getAttribute("username")%>">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
@@ -70,21 +71,15 @@
         </div>
 
     </nav>
-    <br>
-    <form action="QuestionViewServlet" method="POST">
-        <%
-            Room room = (Room)request.getAttribute("room");
-            String username = (String) request.getAttribute("username");
-        %>
-        <div style="background-color: #FFCC99;margin-left: 35%;margin-right: 35%;width: 500px;height: 400px;color: black">
-            <input type="hidden" name="id_room" value="<%= room.getId_room() %>">
-            <input type="hidden" name="username" value="<%= username %>">
-            <h4 style="margin-bottom: 30px;">Có Phải bạn muốn tham dự <%=room.getName_room()%> </h4>
-            <label for="input_roompassword" style="color: black;margin-right: 15px;margin-left: 20px;"> Nhập mật khẩu phòng thi </label>
-            <input type="text" style="background-color: aliceblue;" name="room_pass" id="input_roompassword">
-            <button type="submit" value="submit" style="margin-left: 45%;margin-top: 50px;" > Confirm </button>
+    <form action="UpdateAccountServlet" method="POST">
+        <div style="margin-top: 200px;margin-left: 500px;height: 300px;width: 400px;border: red solid 3px;">
+            username : <input type="text" name="username" value="<%=request.getAttribute("username")%>" readonly="True" style="margin-bottom: 20px;">
+            <br style="margin-top: 20px;height: 20px;">
+            new password : <input type="text" name="password" style="margin-bottom: 20px;">
+            <br style="margin-top: 20px;height: 20px;">
+            <button type="submit" value="submit"> change </button>
         </div>
     </form>
-<br/>
+</form>
 </body>
 </html>

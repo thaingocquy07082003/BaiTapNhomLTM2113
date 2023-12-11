@@ -34,7 +34,7 @@ public class RoomPasswordServlet extends HttpServlet
         Room room = getRoomByIDBO.GetRoom(id_room);
         request.setAttribute("room",room);
         request.setAttribute("username",username);
-        RequestDispatcher rd = (RequestDispatcher) getServletContext().getRequestDispatcher(destination);
+        RequestDispatcher rd = (RequestDispatcher) request.getRequestDispatcher(destination);
         rd.forward(request,response);
     }
 

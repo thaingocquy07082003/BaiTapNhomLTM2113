@@ -28,15 +28,27 @@ public class GetAllRoomServlet extends HttpServlet
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String destination= "/Home.jsp";
+        String destination = "/Home.jsp";
         GetAllRoomsBO getAllRoomsBO = new GetAllRoomsBO();
         ArrayList<Room> rooms = getAllRoomsBO.Get_Room_List();
-        request.setAttribute("rooms",rooms);
-        request.setAttribute("username","tnq");
-        RequestDispatcher rd = (RequestDispatcher) getServletContext().getRequestDispatcher(destination);
-        rd.forward(request,response);
-    }
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        request.setAttribute("rooms", rooms);
+        request.setAttribute("username", username);
+        AccountManageBO bo = new AccountManageBO();
+        if (bo.getAccountbyUserPass(username, password) == null) {
+            request.setAttribute("mess", "Wrong user or pass");
+            request.getRequestDispatcher("/Login.jsp").forward(request, response);
+        } else {
+            if (bo.getAccountbyUserPass(username, password).getId_role() == 2) {
+                response.sendRedirect("/Admin.jsp");
+            } else {
 
+                request.getRequestDispatcher("/Home.jsp").forward(request, response);
+            }
+
+        }
+    }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 import javax.servlet.RequestDispatcher;
 
 import model.bo.*;
@@ -21,9 +22,11 @@ public class QuestionViewServlet extends HttpServlet
         String destination= "/Exam.jsp";
         int id_room = Integer.parseInt(req.getParameter("id_room"));
         String username = req.getParameter("username");
+        String room_pass = req.getParameter("room_pass");
         GetAnswerDAO getAnswerDAO = new GetAnswerDAO();
         GetQuestionBO getQuestionBO = new GetQuestionBO();
         GetRoomByIDBO getRoomByIDBO = new GetRoomByIDBO();
+        Room room = getRoomByIDBO.GetRoom(id_room);
         ArrayList<Question> questions = getQuestionBO.GetQuestion(id_room);
         ArrayList<Answer> answers = new ArrayList<Answer>();
         for(Question question: questions) {
@@ -34,8 +37,16 @@ public class QuestionViewServlet extends HttpServlet
         req.setAttribute("time",getRoomByIDBO.GetRoom(id_room).getTime());
         req.setAttribute("id_room",id_room);
         req.setAttribute("username",username);
-        RequestDispatcher rd = (RequestDispatcher) getServletContext().getRequestDispatcher(destination);
-        rd.forward(req,resp);
+        if(Objects.equals(room_pass, room.getRoom_pass())) {
+            RequestDispatcher rd = (RequestDispatcher) getServletContext().getRequestDispatcher(destination);
+            rd.forward(req, resp);
+        }
+        else  {
+            GetAllRoomsBO getAllRoomsBO = new GetAllRoomsBO();
+            ArrayList<Room> rooms = getAllRoomsBO.Get_Room_List();
+            req.setAttribute("rooms", rooms);
+            req.getRequestDispatcher("/Home.jsp").forward(req, resp);
+        }
     }
 
     @Override

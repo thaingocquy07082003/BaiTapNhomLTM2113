@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: thain
-  Date: 12/9/2023
-  Time: 11:03 AM
+  Date: 12/12/2023
+  Time: 1:12 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -31,6 +31,7 @@
     </style>
 </head>
 <body>
+
     <form action="SearchServlet" method="POST" >
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -52,7 +53,7 @@
                                     </a>
                                     <ul class="dropdown-menu" >
                                         <li><a class="dropdown-item" href="PointServlet?username=<%=request.getAttribute("username")%>">Điểm</a></li>
-                                        <li><a class="dropdown-item" href="ComeToUpdate?username=<%=request.getAttribute("username")%>">Trang cá nhân</a></li>
+                                        <li><a class="dropdown-item" href="#">Trang cá nhân</a></li>
                                         <li><a class="dropdown-item" href="Login.jsp">Thoát</a></li>
                                     </ul>
                                 </li>
@@ -71,23 +72,28 @@
             </div>
 
         </nav>
-        <div style="width: 70%;height: 50px; background-color: #FFCC99;">
-            <h2> Các Khóa Học Của Tôi</h2>
-        </div>
-        <br>
-        <%
-            String username = (String) request.getAttribute("username");
-            ArrayList<Room> rooms = (ArrayList<Room>)request.getAttribute("rooms");
-            for (Room room : rooms) {
-        %>
-        <a href="RoomPasswordServlet?id_room=<%=room.getId_room()%>&username=<%=username%>">
-            <div style="background-image:url('./image/BG.jpg');height: 60px; width: 70%; display: block" >
-                <h2> <%=room.getName_room() %> </h2>
+        <table class="table table-striped" style="width: 350px; margin-left: 40%;margin-top: 200px;">
+            <thead>
+            <tr>
 
-            </div>
-        </a>
-            <br style="height: 20px;">
-        <% } %>
+                <th>Môn Học </th>
+                <th>Điểm </th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <%
+                ArrayList<StudentPoint> wifeArray = (ArrayList<StudentPoint>)request.getAttribute("studentPoints");
+                for (int i=0; i<wifeArray.size();i++){
+            %>
+            <tr>
+                <td><%= wifeArray.get(i).getName_room() %></td>
+                <td><%= wifeArray.get(i).getPoint_student() %></td>
+
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
     </form>
 </body>
 </html>
