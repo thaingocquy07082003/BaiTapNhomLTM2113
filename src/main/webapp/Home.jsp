@@ -50,7 +50,7 @@
                                     </a>
                                     <ul class="dropdown-menu" >
                                         <li><a class="dropdown-item" href="#">Điểm</a></li>
-                                        <li><a class="dropdown-item" href="#">Trang cá nhân</a></li>
+                                        <li><a class="dropdown-item" href="ShowInfor.jsp">Trang cá nhân</a></li>
                                         <li><a class="dropdown-item" href="Login.jsp">Thoát</a></li>
                                     </ul>
                                 </li>
