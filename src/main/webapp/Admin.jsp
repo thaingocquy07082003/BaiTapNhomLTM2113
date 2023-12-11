@@ -27,13 +27,13 @@
         <h2> 2. <a href="AddAnswer.jsp">Thêm câu trả lời</a></h2>
     </li>
     <li class="list-group-item">
-        <h2> 3. <a href="">Xem bảng điểm </a></h2>
+        <h2> 3. <a href="ShowTablePoint.jsp">Xem bảng điểm </a></h2>
     </li>
     <li class="list-group-item">
         <h2> 4. <a href="">Xem thông tin sinh viên</a></h2>
     </li>
     <li class="list-group-item">
-        <h2>5. <a href=""></a></h2>
+        <h2>5. <a href="EditStudent.jsp">Chỉnh sửa thông tin sinh viên</a></h2>
     </li>
 </ul>
 </body>

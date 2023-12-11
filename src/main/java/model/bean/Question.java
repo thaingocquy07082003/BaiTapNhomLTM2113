@@ -3,6 +3,17 @@ package model.bean;
 public class Question {
     private int id_question;
     private String question;
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id_question=" + id_question +
+                ", question='" + question + '\'' +
+                ", id_answer=" + id_answer +
+                ", id_result=" + id_result +
+                '}';
+    }
+
     private int id_answer;
 
     private int id_result;

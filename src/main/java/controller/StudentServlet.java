@@ -1,6 +1,9 @@
 package controller;
 
-import model.bo.QuestionManageBO;
+import model.bean.Student;
+import model.bean.TablePoint;
+import model.bo.StudentManageBO;
+import model.bo.TablePointManageBO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,17 +11,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet("/AddQuestionServlet")
-public class AddQuestionServlet extends HttpServlet {
+@WebServlet("/StudentServlet")
 
+public class StudentServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public AddQuestionServlet() {
 
+    public StudentServlet() {
     }
 
-    QuestionManageBO bo = new QuestionManageBO();
+   StudentManageBO bo = new StudentManageBO();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -26,9 +30,12 @@ public class AddQuestionServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String question = request.getParameter("question");
-        String id_result = request.getParameter("id_result");
-        bo.insert(question, Integer.parseInt(id_result));
-        response.sendRedirect("/Admin.jsp");
+
+        List<Student> students = bo.getAllStudent();
+        request.setAttribute("students", students);
+
+        // Chuyển hướng tới trang JSP để hiển thị thông tin sinh viên
+        request.getRequestDispatcher("/ShowStudent.jsp").forward(request,response);
     }
+
 }

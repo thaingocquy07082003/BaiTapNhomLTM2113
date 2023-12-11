@@ -1,12 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
   User: 0409k
-  Date: 12/11/2023
-  Time: 6:44 PM
+  Date: 12/12/2023
+  Time: 12:32 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,15 +18,31 @@
 <body>
 <div class="box" style="padding:50px 50px ;">
     <table border="1" width="100%" class="table table-striped">
-        <caption style="padding-left: 33.3%;">Du lieu truy xuat tu bang sinh vien</caption>
-        <TR>
-            <TH>MSSV</TH>
-            <TH>NAME</TH>
-            <TH>USERNAME</TH>
-        </TR>
-    </TABLE>
+        <thead>
+        <tr>
+            <th>Name Room</th>
+            <th>UserName</th>
+            <th>MSSV</th>
+            <th>Name</th>
+            <th>Mark</th>
+        </tr>
+        </thead>
+  <tbody>
+  <c:forEach var="tablePoint" items="${tablePoints}">
+      <tr>
+          <td>${tablePoint.name_room}</td>
+          <td>${tablePoint.username}</td>
+          <td>${tablePoint.mssv}</td>
+          <td>${tablePoint.name_student}</td>
+          <td>${tablePoint.point_student}</td>
+      </tr>
+  </c:forEach>
+
+  </tbody>
+
+
+</table>
     <a href="javascript:history.back();"><button class="btn btn-primary float-right " style="margin-right:30px ;">Quay Lai</button></a>
 </div>
 </body>
-
 </html>
