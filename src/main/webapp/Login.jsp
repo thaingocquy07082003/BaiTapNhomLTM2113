@@ -15,16 +15,21 @@
     <title>Log In</title>
 </head>
 <body>
-    <div class="login">
+
+
+    <form action="LoginServlet" method="post" class="login">
         <div class="box1">
             <h3> Login </h3>
         </div>
+        <div>
+            <marquee style="color: red">${mess}</marquee>
+        </div>
         <div class="box2">
-            <input type="text"  class="mail" placeholder="Email" autocomplete="off" required >
+            <input  name="username"  id="username" type="text"  class="mail" placeholder="Email" autocomplete="off" required >
             <i class="fa-solid fa-envelope" ></i>
         </div>
         <div class="box3">
-            <input type="password" class="mail"placeholder="Password" autocomplete="off" required>
+            <input name="password" id="password" type="password" class="mail"placeholder="Password" autocomplete="off" required>
             <i class="fa-solid fa-lock" ></i>
         </div>
         <div class="box4">
@@ -38,6 +43,6 @@
             <p> Dont't have a account </p>
             <a href="Register.jsp"> Register </a>
         </div>
-    </div>
+    </form>
 </body>
 </html>

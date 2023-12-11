@@ -15,29 +15,29 @@
   <title>Title</title>
 </head>
 <body>
-<div class="login">
+<form form action="AddAccountServlet" method="post" class="login">
   <div class="box1">
     <h3> Register </h3>
   </div>
   <div class="box2">
-    <input type="text"  class="mail" placeholder="Email" autocomplete="off" required >
+    <input id="userName" name="userName" type="text"  class="mail" placeholder="Email" autocomplete="off" required >
 
   </div>
   <div class="box3">
-    <input type="password" class="mail"placeholder="Password" autocomplete="off" required>
+    <input id="password" name="password" type="password" class="mail"placeholder="Password" autocomplete="off" required>
 
   </div>
   <div class="box3">
-    <input type="password" class="mail"placeholder="Password" autocomplete="off" required>
+    <input  id="repassword" name="repassword" type="password" class="mail"placeholder="Password" autocomplete="off" required>
+    <p style="color: red">${re}</p>
 
   </div>
   <div class="box5">
     <button> Register </button>
   </div>
   <div class="box6">
-    <p> you've haven a account? Let's Log in </p>
-    <a href="Login.jsp"> Log In </a>
+    <h3  style="color: red">${exit}<a href="Login.jsp"> Log In </a> </h3>
   </div>
-</div>
+</form>
 </body>
 </html>
