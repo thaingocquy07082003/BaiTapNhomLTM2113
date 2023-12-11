@@ -21,7 +21,7 @@
                 <h3> Login </h3>
             </div>
             <div class="box2">
-                <input type="text"  class="mail" placeholder="Email" autocomplete="off" required >
+                <input type="text"  class="mail" placeholder="Email" autocomplete="off" required  name="username">
                 <i class="fa-solid fa-envelope" ></i>
             </div>
             <div class="box3">

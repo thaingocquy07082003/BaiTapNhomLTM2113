@@ -32,6 +32,7 @@ public class GetAllRoomServlet extends HttpServlet
         GetAllRoomsBO getAllRoomsBO = new GetAllRoomsBO();
         ArrayList<Room> rooms = getAllRoomsBO.Get_Room_List();
         request.setAttribute("rooms",rooms);
+        request.setAttribute("username","tnq");
         RequestDispatcher rd = (RequestDispatcher) getServletContext().getRequestDispatcher(destination);
         rd.forward(request,response);
     }

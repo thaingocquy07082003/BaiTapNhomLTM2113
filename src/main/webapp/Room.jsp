@@ -74,9 +74,11 @@
     <form action="QuestionViewServlet" method="POST">
         <%
             Room room = (Room)request.getAttribute("room");
+            String username = (String) request.getAttribute("username");
         %>
         <div style="background-color: #FFCC99;margin-left: 35%;margin-right: 35%;width: 500px;height: 400px;color: black">
             <input type="hidden" name="id_room" value="<%= room.getId_room() %>">
+            <input type="hidden" name="username" value="<%= username %>">
             <h4 style="margin-bottom: 30px;">Có Phải bạn muốn tham dự <%=room.getName_room()%> </h4>
             <label for="input_roompassword" style="color: black;margin-right: 15px;margin-left: 20px;"> Nhập mật khẩu phòng thi </label>
             <input type="text" style="background-color: aliceblue;" name="password_room" id="input_roompassword">

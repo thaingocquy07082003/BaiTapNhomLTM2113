@@ -29,9 +29,11 @@ public class RoomPasswordServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String destination= "/Room.jsp";
         int id_room = Integer.parseInt(request.getParameter("id_room"));
+        String username = request.getParameter("username");
         GetRoomByIDBO getRoomByIDBO = new GetRoomByIDBO();
         Room room = getRoomByIDBO.GetRoom(id_room);
         request.setAttribute("room",room);
+        request.setAttribute("username",username);
         RequestDispatcher rd = (RequestDispatcher) getServletContext().getRequestDispatcher(destination);
         rd.forward(request,response);
     }

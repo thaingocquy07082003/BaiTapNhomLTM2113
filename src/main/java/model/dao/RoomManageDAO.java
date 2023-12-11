@@ -21,7 +21,8 @@ public class RoomManageDAO {
             while (rs.next()) {
                 int id = rs.getInt("id_room");
                 String roomname = rs.getString("name_room");
-                Room room = new Room(id,roomname);
+                int time = rs.getInt("time");
+                Room room = new Room(id,roomname,time);
                 rooms.add(room);
             }
             rs.close();

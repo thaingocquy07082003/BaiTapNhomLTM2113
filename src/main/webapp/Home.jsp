@@ -76,10 +76,11 @@
         </div>
         <br>
         <%
+            String username = (String) request.getAttribute("username");
             ArrayList<Room> rooms = (ArrayList<Room>)request.getAttribute("rooms");
             for (Room room : rooms) {
         %>
-        <a href="RoomPasswordServlet?id_room=<%=room.getId_room()%>">
+        <a href="RoomPasswordServlet?id_room=<%=room.getId_room()%>&username=<%=username%>">
             <div style="background-image:url('./image/BG.jpg');height: 60px; width: 70%; display: block" >
                 <h2> <%=room.getName_room() %> </h2>
 

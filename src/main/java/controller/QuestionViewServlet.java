@@ -11,6 +11,7 @@ import javax.servlet.RequestDispatcher;
 import model.bo.*;
 import model.bean.*;
 import model.dao.GetAnswerDAO;
+import model.dao.RoomManageDAO;
 
 @WebServlet("/QuestionViewServlet")
 public class QuestionViewServlet extends HttpServlet
@@ -19,8 +20,10 @@ public class QuestionViewServlet extends HttpServlet
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String destination= "/Exam.jsp";
         int id_room = Integer.parseInt(req.getParameter("id_room"));
+        String username = req.getParameter("username");
         GetAnswerDAO getAnswerDAO = new GetAnswerDAO();
         GetQuestionBO getQuestionBO = new GetQuestionBO();
+        GetRoomByIDBO getRoomByIDBO = new GetRoomByIDBO();
         ArrayList<Question> questions = getQuestionBO.GetQuestion(id_room);
         ArrayList<Answer> answers = new ArrayList<Answer>();
         for(Question question: questions) {
@@ -28,6 +31,9 @@ public class QuestionViewServlet extends HttpServlet
         }
         req.setAttribute("questions",questions);
         req.setAttribute("answers",answers);
+        req.setAttribute("time",getRoomByIDBO.GetRoom(id_room).getTime());
+        req.setAttribute("id_room",id_room);
+        req.setAttribute("username",username);
         RequestDispatcher rd = (RequestDispatcher) getServletContext().getRequestDispatcher(destination);
         rd.forward(req,resp);
     }
