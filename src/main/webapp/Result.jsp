@@ -35,6 +35,7 @@
         <br>
         <p>Điểm : <%=decimalPart%>   </p>
         <br>
+        <a class="nav-link active" aria-current="page" href="ReturnHomeServlet?username=<%=request.getAttribute("username")%>"> Trang chủ </a>
     </div>
 </body>
 </html>

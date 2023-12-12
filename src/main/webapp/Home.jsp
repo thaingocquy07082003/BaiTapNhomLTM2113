@@ -52,7 +52,7 @@
                                     </a>
                                     <ul class="dropdown-menu" >
                                         <li><a class="dropdown-item" href="PointServlet?username=<%=request.getAttribute("username")%>">Điểm</a></li>
-                                        <li><a class="dropdown-item" href="ComeToUpdate?username=<%=request.getAttribute("username")%>">Trang cá nhân</a></li>
+                                        <li><a class="dropdown-item" href="ComeToUpdate?username=<%=request.getAttribute("username")%>">Đổi mật khẩu</a></li>
                                         <li><a class="dropdown-item" href="Login.jsp">Thoát</a></li>
                                     </ul>
                                 </li>
@@ -81,7 +81,7 @@
             for (Room room : rooms) {
         %>
         <a href="RoomPasswordServlet?id_room=<%=room.getId_room()%>&username=<%=username%>">
-            <div style="background-image:url('./image/BG.jpg');height: 60px; width: 70%; display: block" >
+            <div style="background-image:url('./image/BG.jpg');height: 60px; width: 70%; display: block;text-decoration: none;" >
                 <h2> <%=room.getName_room() %> </h2>
 
             </div>

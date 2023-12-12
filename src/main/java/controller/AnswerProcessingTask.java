@@ -65,6 +65,5 @@ public class AnswerProcessingTask implements Runnable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

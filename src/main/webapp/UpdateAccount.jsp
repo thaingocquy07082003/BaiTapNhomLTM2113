@@ -52,7 +52,7 @@
                                 </a>
                                 <ul class="dropdown-menu" >
                                     <li><a class="dropdown-item" href="PointServlet?username=<%=request.getAttribute("username")%>">Điểm</a></li>
-                                    <li><a class="dropdown-item" href="UpdateAccount.jsp?username=<%=request.getAttribute("username")%>">Trang cá nhân</a></li>
+                                    <li><a class="dropdown-item" href="UpdateAccount.jsp?username=<%=request.getAttribute("username")%>">Đổi Mật khẩu </a></li>
                                     <li><a class="dropdown-item" href="Login.jsp">Thoát</a></li>
                                 </ul>
                             </li>
