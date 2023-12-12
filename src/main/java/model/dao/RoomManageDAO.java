@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.sql.Statement;
 import model.bean.*;
+import model.bo.GetAllRoomsBO;
+
 public class RoomManageDAO {
     public ArrayList<Room> Get_All_Room()
     {
@@ -19,7 +21,9 @@ public class RoomManageDAO {
             while (rs.next()) {
                 int id = rs.getInt("id_room");
                 String roomname = rs.getString("name_room");
-                Room room = new Room(id,roomname);
+                int time = rs.getInt("time");
+                String room_pass = rs.getString("room_pass");
+                Room room = new Room(id,roomname,time,room_pass);
                 rooms.add(room);
             }
             rs.close();
@@ -31,5 +35,16 @@ public class RoomManageDAO {
             System.out.println("Error "+ f);
         }
         return rooms;
+    }
+
+    public Room GetRoomByIDDAO(int id_room) {
+        Room roomtmp = new Room();
+        ArrayList<Room> rooms = Get_All_Room();
+        for(Room room : rooms) {
+            if(room.getId_room() == id_room) {
+                return room;
+            }
+        }
+        return roomtmp;
     }
 }
