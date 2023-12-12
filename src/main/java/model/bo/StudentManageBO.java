@@ -13,4 +13,10 @@ public class StudentManageBO {
     public Student getByMssv(int mssv){
         return dao.getByMssv(mssv);
     }
+    public void delete(int mssv) {
+        dao.delete(mssv);
+    }
+    public void update(int mssv, String name_students,String username) {
+        dao.update(mssv,name_students,username);
+    }
 }

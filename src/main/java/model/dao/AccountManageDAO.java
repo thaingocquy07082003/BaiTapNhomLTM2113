@@ -93,7 +93,6 @@ public class AccountManageDAO {
         ArrayList<String> p = dao.getUsername();
 
             System.out.println(p);
-        System.out.println(dao.getAccountbyUserPass("thuhoa123","123").getId_role());
 
     }
 

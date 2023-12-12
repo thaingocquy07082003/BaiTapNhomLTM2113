@@ -21,19 +21,16 @@
 <h1 align="center"> ADMIN </h1>
 <ul class="list-group">
     <li class="list-group-item">
-        <h2> 1. <a href="AddQuestion.jsp">Thêm câu hỏi </a></h2>
+        <h2> 1. <a href="AddQuestionServlet">Thêm câu hỏi </a></h2>
     </li>
     <li class="list-group-item">
         <h2> 2. <a href="AddAnswer.jsp">Thêm câu trả lời</a></h2>
     </li>
     <li class="list-group-item">
-        <h2> 3. <a href="ShowTablePoint.jsp">Xem bảng điểm </a></h2>
+        <h2> 3. <a href="TablePointServlet">Xem bảng điểm </a></h2>
     </li>
     <li class="list-group-item">
-        <h2> 4. <a href="">Xem thông tin sinh viên</a></h2>
-    </li>
-    <li class="list-group-item">
-        <h2>5. <a href="EditStudent.jsp">Chỉnh sửa thông tin sinh viên</a></h2>
+        <h2> 4. <a href="StudentServlet">Xem thông tin sinh viên</a></h2>
     </li>
 </ul>
 </body>

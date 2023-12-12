@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" import="model.bean.*" %>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,28 +17,36 @@
 <body>
 
 <div class="col-5 offset-4 mt-4">
-    <form name="form" action="" method='post'>
+    <form name="form" action="UpdateStudentServlet" method='post'>
         <div class="card">
             <div class="card-header">
                 <b>Chỉnh sửa thông tin sinh viên </b>
             </div>
+            <%
+                Student student = (Student) request.getAttribute("student");
+           %>
             <div class="card-body">
                 <div class="form-group">
                     <label >MSSV</label>
-                    <input type="text" class="form-control" name="mssv" id="mssv">
+                    <input type="text" class="form-control" name="mssv" id="mssv" value="<%=student.getMssv()%>"readonly>
                 </div>
                 <div class="form-group">
                     <label >Tên sinh viên</label>
-                    <input type="text" class="form-control" name="name_student" id="name_student">
+                    <input type="text" class="form-control" name="name_student" id="name_student" value="<%=student.getName_student()%>">
                 </div>
                 <div class="form-group">
                     <label >Username</label>
-                    <input type="text" class="form-control" name="username" id="username">
+                    <input type="text" class="form-control" name="username" id="username" value="<%=student.getUsername()%>">
                 </div>
             </div>
             <div class="card-footer text-muted">
-                <input type="reset" class="float-right btn btn-primary ml-2" value="Reset">
-                <input type="submit" class="float-right btn btn-primary" name="insert" value="OK">
+                <input type="submit" class="float-right btn btn-primary" name="insert" value="OK" onclick="dis()">
+                <script>
+                    function dis()
+                    {
+                        location.reload();
+                    }
+                </script>
             </div>
         </div>
     </form>

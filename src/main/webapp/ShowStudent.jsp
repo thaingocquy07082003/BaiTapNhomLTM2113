@@ -6,7 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" import="java.util.ArrayList" %>
+<%@ page language="java" import="model.bean.*" %>
 <html lang="en">
 
 <head>
@@ -19,7 +20,7 @@
 </head>
 
 <body>
-<t class="box" style="padding:50px 50px ;">
+<div class="box" style="padding:50px 50px ;">
     <form action="" method="post">
         <table border="1" width="100%" class="table table-striped">
             <thead>
@@ -30,9 +31,24 @@
                 <TH>Option</TH>
             </TR>
             </thead>
-           <thead>
-
-           </thead>
+           <tbody>
+           <%
+               ArrayList<Student> students = (ArrayList<Student>) request.getAttribute("students");
+               for(Student student : students) {
+           %>
+               <tr>
+                   <td><%=student.getMssv()%></td>
+                   <td><%=student.getName_student()%></td>
+                   <td><%=student.getUsername()%></td>
+                   <td>
+                       <a href="DeleteStudentServlet?mssv=<%=student.getMssv()%>">DELETE</a>
+                       <a href="UpdateStudentServlet?mssv=<%=student.getMssv()%>">UPDATE</a>
+                   </td>
+               </tr>
+           <%
+               }
+           %>
+           </tbody>
         </table>
     </form>
         <button class="btn btn-primary float-left " style="margin-right:30px ;">Quay Lai</button></a>
